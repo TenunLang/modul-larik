@@ -1,0 +1,10 @@
+{
+  "nama": "larik",
+  "versi": "0.1.0",
+  "deskripsi": "Utilitas fungsional larik untuk Tenun: peta/saring/lipat (map/filter/reduce), ada, hitung, temu, balik.",
+  "lisensi": "MIT",
+  "penulis": "TenunLang",
+  "berkas": "src/larik.tenun",
+  "kataKunci": ["larik", "array", "map", "filter", "reduce", "fungsional"],
+  "butuh": {}
+}

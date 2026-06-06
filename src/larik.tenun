@@ -1,0 +1,74 @@
+// Modul Larik — utilitas fungsional untuk larik (map/filter/reduce, dll).
+// Ditulis murni dengan Tenun, memanfaatkan first-class function + for-each.
+// Memakai tipe `dinamis` agar bekerja untuk larik tipe apa pun.
+
+// map: terapkan f ke tiap elemen, kembalikan larik baru.
+fungsi larik_peta(arr: []dinamis, f: fungsi): []dinamis {
+    biar hasil: []dinamis = [];
+    untuk x dari arr {
+        hasil = dorong(hasil, f(x));
+    }
+    kembali hasil;
+}
+
+// filter: simpan elemen yang f(x) == benar.
+fungsi larik_saring(arr: []dinamis, f: fungsi): []dinamis {
+    biar hasil: []dinamis = [];
+    untuk x dari arr {
+        kalau f(x) {
+            hasil = dorong(hasil, x);
+        }
+    }
+    kembali hasil;
+}
+
+// reduce: lipat larik jadi satu nilai. f(akumulator, elemen) -> akumulator baru.
+fungsi larik_lipat(arr: []dinamis, awal: dinamis, f: fungsi): dinamis {
+    biar akk: dinamis = awal;
+    untuk x dari arr {
+        akk = f(akk, x);
+    }
+    kembali akk;
+}
+
+// True bila ada elemen yang memenuhi f.
+fungsi larik_ada(arr: []dinamis, f: fungsi): bool {
+    untuk x dari arr {
+        kalau f(x) {
+            kembali benar;
+        }
+    }
+    kembali salah;
+}
+
+// Jumlah elemen yang memenuhi f.
+fungsi larik_hitung(arr: []dinamis, f: fungsi): bulat {
+    biar n: bulat = 0;
+    untuk x dari arr {
+        kalau f(x) {
+            n = n + 1;
+        }
+    }
+    kembali n;
+}
+
+// Elemen pertama yang memenuhi f, atau nilai `bawaan` bila tak ada.
+fungsi larik_temu(arr: []dinamis, f: fungsi, bawaan: dinamis): dinamis {
+    untuk x dari arr {
+        kalau f(x) {
+            kembali x;
+        }
+    }
+    kembali bawaan;
+}
+
+// Balik urutan larik.
+fungsi larik_balik(arr: []dinamis): []dinamis {
+    biar hasil: []dinamis = [];
+    biar i: bulat = panjang(arr) - 1;
+    selama i >= 0 {
+        hasil = dorong(hasil, arr[i]);
+        i = i - 1;
+    }
+    kembali hasil;
+}
