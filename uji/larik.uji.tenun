@@ -1,0 +1,9 @@
+impor "../src/larik.tenun";
+
+fungsi genap(x: dinamis): bool {
+    kembali (x % 2) == 0;
+}
+
+biar n: bulat = larik_hitung([1, 2, 3, 4], genap);
+tegasSamaBulat(n, 2, "larik_hitung genap");
+tegas(larik_ada([1, 2, 3], genap), "larik_ada ada genap");

@@ -18,3 +18,5 @@ jobs:
           printf 'impor "larik";\n' > cek.tenun
           "$HOME/.tenun/bin/tenun" run cek.tenun
           echo "modul larik valid"
+      - name: Uji unit
+        run: "$HOME/.tenun/bin/tenun" check .
